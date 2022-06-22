@@ -9,6 +9,8 @@ app.get("/healthcheck", (req, res, next) => {
    });
 
 
-   app.get("/detail", (req, res, next) => {
+app.get("/detail", (req, res, next) => {
     res.json("Sample API V1.0.0");
    });
+
+module.exports = app
