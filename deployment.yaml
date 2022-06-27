@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  name: nodejs-deployment  
+  labels:    
+    app: node-api-jenkin
+spec:  
+  replicas: 1  
+  selector:    
+    matchLabels:
+      app: node-api-jenkin
+  template:
+    metadata:
+      labels:
+        app: node-api-jenkin
+    spec: 
+     containers:
+      - name: node-api-jenkin
+        image: fpathankcs/node-api-jenkin
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-service
+  labels:
+    app: node-api-jenkin
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+    nodePort: 32121
+  selector:
+    app: node-api-jenkin
