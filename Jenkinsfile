@@ -31,7 +31,7 @@ pipeline{
            }
            stage('Deploying into k8s'){
             steps{
-                bat 'kubectl apply -f deployment.yml' 
+                bat 'kubectl apply -f deployment.yml --token $TOKEN_FROM_WITH_CREDENTIALS --server apiserver.hostname.local' 
             }
         }
     }
