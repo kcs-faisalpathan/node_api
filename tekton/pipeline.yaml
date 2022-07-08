@@ -1,12 +1,9 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
 metadata:
   name: build-docker-image-from-git-source-pipeline
 spec:
   serviceAccountName: tekton-sa
-  params:
-    - name: hello-greeting
-      default: Hello from a Pipeline
   tasks:
     - name: build-docker-image
       taskRef:
