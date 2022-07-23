@@ -31,7 +31,7 @@ pipeline{
            }
            stage('Deploying into k8s'){
             steps{
-                bat 'kubectl apply -f deployment.yaml --token $TOKEN_FROM_WITH_CREDENTIALS --server http://127.0.0.1:60425' 
+                bat 'kubectl apply -f deployment.yaml --token $TOKEN_FROM_WITH_CREDENTIALS --server http://127.0.0.1:63267' 
             }
         }
     }
